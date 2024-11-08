@@ -1,0 +1,47 @@
+-- database: ../database.sqlite
+
+DROP TABLE usuarios;
+DROP TABLE filmes;
+DROP TABLE avaliacoes;
+
+CREATE TABLE usuarios (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- CRIAR REGISTRO DE USUARIOS
+INSERT INTO usuarios (nome, email, password) VALUES ('admin', 'admin@email.com', 'senha');
+INSERT INTO usuarios (nome, email, password) VALUES ('user', 'user@email.com', 'senha');
+
+CREATE TABLE filmes (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    estilo VARCHAR(255),
+    ano_lancamento INTEGER,
+    descricao VARCHAR(255),
+    imagem VARCHAR(255),
+    usuario_id INTEGER,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+INSERT INTO filmes (titulo, estilo, ano_lancamento, descricao, imagem, usuario_id) VALUES
+('Meu Malvado Favorito 4', 'Animação', 2024, 'Gru e os Minions retornam em uma nova aventura.', '/assets/image/Meu Malvado Favorito 4.png', 1),
+('Pobres Criaturas', 'Comédia', 2023, 'Uma história excêntrica com uma personagem única em busca de aventuras.', '/assets/image/Pobres_Criaturas.png', 1),
+('Deadpool & Wolverine', 'Ação/Comédia', 2024, 'Deadpool e Wolverine se juntam em uma missão épica e engraçada.', '/assets/image/Deadpool & Wolverine.png', 1),
+('O Corvo', 'Drama/Fantasia', 1994, 'Um músico retorna dos mortos para vingar sua morte e de sua namorada.', '/assets/image/O Corvo.png', 1),
+('O Senhor dos Anéis: Sociedade do Anel', 'Fantasia', 2001, 'A jornada de Frodo e a Sociedade do Anel para destruir o Um Anel.', '/assets/image/O senhor dos Aneis.png', 1),
+('Alien: Covenant', 'Ficção Científica', 2017, 'A tripulação da nave Covenant encontra horrores em um planeta desconhecido.', '/assets/image/Alien Convenant.png', 1),
+('Divertidamente 2', 'Animação', 2024, 'As emoções voltam para novas aventuras dentro da mente de Riley.', '/assets/image/Divertidamente 2.png', 1),
+('Mad Max: Estrada da Fúria', 'Ação', 2015, 'Max e Furiosa enfrentam o tirano Immortan Joe em uma perseguição alucinante no deserto.', '/assets/image/Mad Max.png', 1);
+
+CREATE TABLE avaliacoes (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    usuario_id INTEGER,
+    filme_id INTEGER,
+    avaliacao TEXT,
+    nota INTEGER,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (filme_id) REFERENCES filmes(id) ON DELETE CASCADE
+)
