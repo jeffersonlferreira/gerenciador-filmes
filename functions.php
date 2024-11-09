@@ -17,7 +17,11 @@ function view($view, $data = []) {
         $$key = $value;
     };
 
-    require "views/templates/app.php";
+    if($view == 'login' || $view == 'register') {
+        require "views/templates/guest.php";
+    } else {
+        require "views/templates/app.php";
+    }
 
 }
 

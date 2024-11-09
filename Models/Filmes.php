@@ -37,8 +37,8 @@ class Filmes
         return (new self)->query('f.id = :id', ['id' => $id])->fetch();
     }
 
-    public static function meus($usuario_id)
+    public static function meus($usuario_id, $filtro)
     {
-        return (new self)->query('f.usuario_id = :usuario_id', ['usuario_id' => $usuario_id])->fetchAll();
+        return (new self)->query('f.usuario_id = :usuario_id AND f.titulo like :filtro', ['usuario_id' => $usuario_id, 'filtro' => "%{$filtro}%"])->fetchAll();
     }
 }
