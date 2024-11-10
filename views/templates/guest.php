@@ -44,9 +44,23 @@
 
             </div>
 
+
             <div class="w-1/2 h-full">
 
-                <?php require "../views/{$view}.view.php"; ?>
+                <div class="w-full h-full flex justify-center pt-32">
+
+                    <div class="flex flex-col gap-14 w-80">
+
+                        <div class="flex gap-1 items-center justify-center text-[#7A7B9F] text-base p-1 bg-[#131320] rounded-md">
+                            <a href="/login" class="w-1/2 px-2 py-1 rounded-md h-10 flex items-center justify-center <?= active('login') ?>">Login</a>
+                            <a href="/register" class="w-1/2 px-2 py-1 rounded-md h-10 flex items-center justify-center <?= active('register') ?>">Register</a>
+                        </div>
+
+                        <?php require "../views/{$view}.view.php"; ?>
+
+                    </div>
+
+                </div>
 
             </div>
 
