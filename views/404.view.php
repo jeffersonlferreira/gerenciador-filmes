@@ -1,1 +1,1 @@
-Página não encontrada
+<img src="/assets/404 Error Page not Found.svg" alt="404 - Página não encontrada" class="h-[600px]">

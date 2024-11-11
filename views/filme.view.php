@@ -242,32 +242,94 @@
 
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- Modal -->
-<div id="modal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
-    <div class="w-1/3 p-6 bg-white rounded-lg shadow-lg">
-        <h2 class="text-lg font-bold">Título do Modal</h2>
-        <p class="mt-4 text-gray-600">Este é o conteúdo do modal. Coloque aqui qualquer informação que queira mostrar ao usuário.</p>
-        <div class="flex justify-end mt-6">
-            <button onclick="toggleModal()" class="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-700">Fechar</button>
-        </div>
+<div id="modal" class="fixed inset-0 flex items-center justify-center hidden bg-[#040407]/60 backdrop-blur-sm">
+    <div class="w-[600px] h-[570px] bg-[#0F0F1A] border border-[#1A1B2D] rounded-2xl p-10 flex flex-col gap-8">
+
+        <button class="flex justify-center items-center w-8 h-8 gap-3 absolute right-[42rem] top-[12rem] bg-[#1A1B2D] rounded-md" onclick="toggleModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#7A7B9F" viewBox="0 0 256 256">
+                <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+            </svg>
+        </button>
+
+        <h2 class="font-[Rajdhani] text-xl font-bold font-[#E4E5EC]">Avaliar filme</h2>
+
+        <form class="flex flex-col gap-6 w-full">
+
+            <div class="flex gap-8">
+
+                <img src="assets/image/Pobres_Criaturas.png" class="w-[137px] h-[176px] rounded-md">
+
+                <div class="flex flex-col justify-between">
+
+                    <div class="flex flex-col gap-3">
+                        <h3 class="font-[Rajdhani] font-bold text-2xl">Pobres Criaturas</h3>
+                        <div class="font-[#B5B6C9] text-sm">
+                            <p>Categoria: Drama</p>
+                            <p>Ano: 2023</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <p class="font['Nunito_Sans'] text-sm">Sua avaliação:</p>
+
+
+                        <div class="flex gap-1.5">
+
+                            <input type="hidden" name="avaliacao" id="avaliacao">
+
+                            <!-- Estrela 1 -->
+                            <button class="star text-gray-500" data-value="1" onclick="setRating(event, 1)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#A85FDD" viewBox="0 0 256 256">
+                                    <path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Estrela 2 -->
+                            <button class="star text-gray-500" data-value="2" onclick="setRating(event, 2)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#A85FDD" viewBox="0 0 256 256">
+                                    <path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Estrela 3 -->
+                            <button class="star text-gray-500" data-value="3" onclick="setRating(event, 3)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#A85FDD" viewBox="0 0 256 256">
+                                    <path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Estrela 4 -->
+                            <button class="star text-gray-500" data-value="4" onclick="setRating(event, 4)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#A85FDD" viewBox="0 0 256 256">
+                                    <path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Estrela 5 -->
+                            <button class="star text-gray-500" data-value="5" onclick="setRating(event, 5)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#A85FDD" viewBox="0 0 256 256">
+                                    <path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <textarea name="comentario" id="comentario" placeholder="Comentário"
+                class="w-full h-40 bg-transparent rounded-md border border-[#1A1B2D] focus:border-[#892CCD] outline-none px-4 py-3"></textarea>
+
+            <div class="flex justify-end">
+                <button class="text-center text-base text-white bg-[#892CCD] w-[86px] h-12 rounded-md flex items-center justify-center gap-2 px-5 py-3 cursor-pointer hover:bg-[#A85FDD] hover:shadow-[0_4px_10px_rgba(137,44,205,0.5)]">Publicar</button>
+            </div>
+
+        </form>
+
     </div>
 </div>
 
@@ -275,5 +337,30 @@
     function toggleModal() {
         const modal = document.getElementById("modal");
         modal.classList.toggle("hidden");
+    }
+
+    function setRating(event, value) {
+        event.preventDefault();
+        document.getElementById("avaliacao").value = value;
+        document.querySelectorAll(".star").forEach(star => {
+            if (star.getAttribute("data-value") <= value) {
+                star.classList.remove("text-yellow-500");
+                star.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#a85fdd" viewBox="0 0 256 256">
+                        <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"></path>
+                    </svg>
+                `;
+            } else {
+                star.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#A85FDD" viewBox="0 0 256 256">
+                        <path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path>
+                    </svg>
+                `;
+            }
+        });
+    }
+
+    function toggleModal() {
+        document.getElementById("modal").classList.toggle("hidden");
     }
 </script>
