@@ -1,4 +1,4 @@
-<form class="flex flex-col gap-8">
+<form method="POST" class="flex flex-col gap-8">
     <div class="flex flex-col gap-4">
         <h2 class="font-['Rammetto_One'] text-[#E5E2E9] text-2xl">Acesse sua conta</h2>
 

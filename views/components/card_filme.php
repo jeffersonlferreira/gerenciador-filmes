@@ -1,7 +1,7 @@
 <!-- CARD FILME -->
-<div class="w-[280px] h-[360px] rounded-lg flex flex-col justify-between relative group">
+<a href="/filme?id=<?= $filme->id ?>" class="w-[280px] h-[360px] rounded-lg flex flex-col justify-between relative overflow-hidden group">
 
-    <img class="left-0 top-0 absolute rounded-lg" src="<?=$filme->imagem?>" />
+    <img src="<?=$filme->imagem?>" alt="Imagem" class="left-0 top-0 absolute rounded-lg object-cover transition-transform duration-500 ease-in-out transform group-hover:scale-110">
 
     <div
         class="w-[280px] h-[360px] left-0 top-0 absolute bg-gradient-to-t from-[#090910] opacity-90 group-hover:from-[#090910] group-hover:via-[#090910E5] group-hover:to-[#09091099]">
@@ -43,5 +43,5 @@
         </div>
     </div>
 
-</div>
+</a>
 <!-- CARD FILME -->

@@ -54,3 +54,21 @@ function active($rota = '') {
         return 'fill-[#7A7B9F]';
     };
 };
+
+function flash()
+{
+    return new Flash;
+}
+
+function auth()
+{
+
+    if(!isset($_SESSION['auth'])) {
+
+        return null;
+
+    }
+
+    return $_SESSION['auth'];
+
+}
